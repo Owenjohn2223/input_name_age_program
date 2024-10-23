@@ -1,17 +1,26 @@
 # Creating a program that ask user to input name and age
 name_age_list = {}
 
-name = input("Please input a name: ")
-age = int(input("Please input the age: "))
+while True:
+    try:
+        name = input("Please input a name: ")
+        age = int(input("Please input the age: "))
+        
+        print("__________________________")
+        print(f"Name:\t{name}")
+        print(f"Age:\t{age}")
+        print("__________________________")
 
-name_age_list[name] = {
-    "age" : age
-}
+        add_more = input("Add More?(y/n): ")
 
-print("__________________________")
-print(f"Name:\t{name}")
-print(f"Age:\t{name_age_list[name]["age"]}")
-print("__________________________")
+        if add_more == 'n':
+            break
+        elif add_more != 'y':
+            print("Please choose between 'y' or 'n' only")
+    except:
+        print("****Invalid Input****\n **Please Try Again**")
+
+
 # Print error message when input is not valid
 
 # def of valid name and age, storing collected info into array
