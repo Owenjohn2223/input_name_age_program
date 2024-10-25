@@ -6,10 +6,10 @@ while True:
         name = input("Please input a name: ")
         age = int(input(f"Please input {name}'s age: "))
         
-        print("__________________________")
+        print("---------------------")
         print(f"Name:\t{name}")
         print(f"Age:\t{age}")
-        print("__________________________")
+        print("---------------------")
 
         user_inputs.append((name, age))
         
@@ -17,17 +17,25 @@ while True:
             add_more = input("Add More?(y/n): ")
             
             if add_more == 'n':
-                print("-------All Entries------")
-                for name, age in user_inputs:
-                    print(f"~ Name:{name}\tAge:{age}")
-                print("------------------------")
+                if user_inputs:
+                    oldest_name = None
+                    oldest_age = None
+                    
+                    for user in user_inputs:
+                        if oldest_age is None or user[1] > oldest_age:
+                            oldest_age = user[1]
+                            oldest_name = user[0]
+                    print("\n")
+                    print("-------All Entries------")
+                    for name, age in user_inputs:
+                        print(f"~ Name:{name}\tAge:{age}")
+                    print("------------------------")
+                    print(f"The oldest person is {oldest_name} with an age of {oldest_age}.")
                 break
             elif add_more == 'y':
                 break
             else:
                  print("Please choose between 'y' or 'n' only")
-                 
-        if add_more == 'n':
             break
         
 # Print error message when input is not valid
