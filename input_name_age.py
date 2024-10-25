@@ -11,11 +11,13 @@ while True:
         print(f"Age:\t{age}")
         print("---------------------")
 
+        # def of valid name and age, storing collected info into array
         user_inputs.append((name, age))
         
         while True:
-            add_more = input("Add More?(y/n): ")
-            
+            add_more = input("Add More?(y/n): ").lower()
+        
+        # if Yes, ask again for input. except No, show the name and age of the oldest person
             if add_more == 'n':
                 if user_inputs:
                     oldest_name = None
@@ -36,12 +38,9 @@ while True:
                 break
             else:
                  print("Please choose between 'y' or 'n' only")
+        if add_more == 'n':
             break
         
 # Print error message when input is not valid
     except ValueError:
-        print("****Invalid Input****\n --Please Try Again--")
-
-# def of valid name and age, storing collected info into array
-
-# if Yes, ask again for input. except No, show the name and age of the oldest person
+        print("****Invalid Input****\n<--Please Try Again-->")
